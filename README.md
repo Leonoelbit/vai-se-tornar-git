@@ -1,133 +1,144 @@
-# UC13 - Executar os Processos de Codificação, Manutenção e Documentação de Aplicativos Computacionais para Desktop
+### UC13 - Executar os Processos de Codificação, Manutenção e Documentação de Aplicativos Computacionais para Desktop
 
-
-## Exercícios - Aula 01
+## Exercícios - Aula 02
 
 ### Objetivo
-Esse documento detalha os q fizexercícios da Aula 01, com o objetivo de praticar operações Git, incluindo criação de commits com mensagens detalhadas, reversão de alterações, e manipulação de branches e merges.
+Este documento detalha os exercícios da Aula 02, com o objetivo de praticar operações Git, incluindo a configuração de repositórios remotos, envio de commits para repositórios on-line e clonagem de repositórios.
 
 ---
 
-## Exercício 1 - Criando um Histórico de Commits com Mensagens Detalhadas
+## Exercício 1 - Configurando um Repositório Git On-line
 
 **Prosseguimento**:
 
-1. Criei uma nova pasta chamada`git-historico`.
-2. Inicializei essa pasta como um repositório Git:
-   ```bash
-   git init
-   ```
-3. Criei três arquivos diferentes:
-   - `notas.txt`: Inclua algum conteúdo relevante.
-   - `resumo.md`: Adicione um resumo ou descrição.
-   - `tarefa.txt`: Descreva uma tarefa ou objetivo.
+1. **Registro no GitHub**:
+   - Registrei-me em uma conta no GitHub acessando GitHub e criando uma conta.
 
-4. Adicionei o commit de cada arquivo separadamente, usando mensagens de commit detalhadas que expliquem o conteúdo e a intenção de cada mudança:
-   ```bash
-   git add notas.txt
-   git commit -m "commit 1"
+2. **Criação do Repositório On-line**:
+   - No GitHub, criei um novo repositório chamado `git-test`.
+   - Anotei a URL do repositório Git on-line: `https://github.com/usuario/git-test.git`.
 
-   git add resumo.md
-   git commit -m "commit 2"
-
-   git add tarefa.txt
-   git commit -m "commit 3"
-   ```
-5. Exibindo o histórico de commits para verificar as mensagens:
-   ```bash
-   git log
-   ```
-
----
-
-## Exercício 2: Desfazendo Alterações com `git reset` e `git restore`
-
-
-**Prosseguimento**:
-
-1. Criei uma nova pasta chamada `projeto-reversao`.
-2. Comecei essa pasta como um repositório Git:
-   ```bash
-   git init
-   ```
-3. Criei um arquivo `experimento.txt` e fiz o conteúdo inicial.
-4. Adicionei e faça o commit do arquivo:
-   ```bash
-   git add experimento.txt
-   git commit -m "Adiciona conteúdo inicial no experimento.txt"
-   ```
-5. Modifiquei o arquivo `experimento.txt` (sem fazer commit) e usei `git restore` para desfazer as mudanças não commitadas:
-   ```bash
-   git restore experimento.txt
-   ```
-6. Fiz mais uma modificação no arquivo e, fiz commit dessa vez:
-   ```bash
-   echo "Nova alteração" >> experimento.txt
-   git add experimento.txt
-   git commit -m "Adicionando nova alteração no experimento.txt"
-   ```
-7. Use `git reset --hard` para reverção o último commit:
-   ```bash
-   git reset --hard HEAD~1
-   ```
-
----
-
-## Exercício 3: Manipulando Branches e Fazendo Merge
-
-
-**Prosseguimento**:
-
-1. Criei uma nova pasta chamada `branch-teste`.
-2. Inicializei a pasta como um repositório Git e criei um arquivo `principal.txt` com texto:
-   ```bash
-   git init
-   echo "Conteúdo inicial do principal.txt" > principal.txt
-   git add principal.txt
-   git commit -m "Adicionar conteúdo inicial no principal.txt na branch main"
-   ```
-3. Criei uma nova branch chamada `melhorias`:
-   ```bash
-   git checkout -b melhorias
-   ```
-4. Adicionei um novo arquivo `novidades.md` e fiz o commit na branch `melhorias`:
-   ```bash
-   echo "Informações sobre novidades" > novidades.md
-   git add novidades.md
-   git commit -m "Adicionando novidades.md com informações sobre atualizações"
-   ```
-5. Voltei para a branch `main` e modifiquei o arquivo `principal.txt`, commitando a mudança:
-   ```bash
-   git checkout main
-   echo "Novas informações no principal.txt" >> principal.txt
-   git add principal.txt
-   git commit -m "Atualiza principal.txt com novas informações na branch main"
-   ```
-6. Tentei fazer o merge da branch `melhorias` na `main` e resolver quaisquer conflitos que surgirem:
-   ```bash
-   git merge melhorias
-   ```
-   - Caso surjam conflitos.
-   - fiz o um commit para finalizar o merge:
+3. **Definição do Repositório Remoto**:
+   - No terminal, naveguei até o diretório do meu repositório local.
+   - Configurei o repositório local para vincular-se ao repositório Git on-line:
      ```bash
-     git add principal.txt
-     git commit -m "Resolvendo conflito entre main e melhorias"
+     git remote add origin https://github.com/usuario/git-test.git
      ```
 
+4. **Envio de Commits para o Repositório On-line**:
+   - No terminal, enviei os commits para o repositório on-line:
+     ```bash
+     git push -u origin master
+     ```
+
+5. **Clonagem de um Repositório On-line**:
+   - Para clonar um repositório on-line em meu computador, usei o comando:
+     ```bash
+     git clone https://github.com/usuario/git-test.git
+     ```
+
+
+### Passo a Passo 1
+
+1. **Criação da Pasta do Projeto**:
+   - Crie uma nova pasta para o seu projeto:
+     ```bash
+     mkdir nome-do-projeto
+     cd nome-do-projeto
+     ```
+
+2. **Inicialização do Repositório Git**:
+   - Inicialize a pasta como um repositório Git:
+     ```bash
+     git init
+     ```
+
+3. **Criação dos Arquivos Iniciais**:
+   - Crie os arquivos necessários para o seu projeto. Por exemplo:
+     ```bash
+     echo "Conteúdo inicial do arquivo principal" > principal.txt
+     echo "Informações sobre novidades" > novidades.md
+     ```
+
+4. **Adição dos Arquivos ao Staging**:
+   - Adicione os arquivos ao staging para preparar para o commit:
+     ```bash
+     git add principal.txt novidades.md
+     ```
+
+5. **Commit dos Arquivos com Mensagens Detalhadas**:
+   - Faça o commit dos arquivos com mensagens que expliquem o conteúdo e a intenção de cada mudança:
+     ```bash
+     git commit -m "Adiciona principal.txt com conteúdo inicial"
+     git commit -m "Adiciona novidades.md com informações sobre atualizações"
+     ```
+
+6. **Criação do Repositório Remoto**:
+   - No GitHub (ou outro serviço de hospedagem), crie um novo repositório e anote a URL.
+
+7. **Definição do Repositório Remoto**:
+   - Associe o repositório remoto ao seu repositório local:
+     ```bash
+     git remote add origin https://github.com/usuario/nome-do-repositorio.git
+     ```
+
+8. **Envio dos Commits para o Repositório Remoto**:
+   - Envie os commits locais para o repositório remoto:
+     ```bash
+     git push -u origin master
+     ```
+
+9. **Verificação do Histórico de Commits**:
+   - Verifique o histórico de commits para garantir que tudo foi enviado corretamente:
+     ```bash
+     git log
+     ```
+
+### Passo a Passo 2
+
+
+# Criação da Pasta do Projeto
+mkdir nome-do-projeto
+cd nome-do-projeto
+
+# Inicialização do Repositório Git
+git init
+
+# Criação dos Arquivos Iniciais
+echo "Conteúdo inicial do arquivo principal" > principal.txt
+echo "Informações sobre novidades" > novidades.md
+
+# Adição dos Arquivos ao Staging
+git add principal.txt novidades.md
+
+# Commit dos Arquivos com Mensagens Detalhadas
+git commit -m "Adiciona principal.txt com conteúdo inicial"
+git commit -m "Adiciona novidades.md com informações sobre atualizações"
+
+# Criação do Repositório Remoto no GitHub
+# (Realize esta etapa no site do GitHub e anote a URL do repositório)
+
+# Definição do Repositório Remoto
+git remote add origin https://github.com/usuario/nome-do-repositorio.git
+
+# Envio dos Commits para o Repositório Remoto
+git push -u origin master
+
+# Verificação do Histórico de Commits
+git log
 ---
 
 ### Conclusão & Anotações
 
-Ao completar esses exercícios eu notei que tive dificuldades na 'main':
+Ao completar esses exercícios, aprendi a configurar um repositório Git remoto, sincronizar o repositório local com o repositório remoto e clonar um repositório remoto. Aqui estão algumas anotações e situações encontradas:
 
-- ## ERRO: 
- PS C:\Users\Aluno\Documents\react-JAVASCRIPT\src\branch-teste> git checkout main
- error: pathspec 'main' did not match any file(s) known to git
- PS C:\Users\Aluno\Documents\react-JAVASCRIPT\src\branch-teste>
+- **Erro ao Definir o Repositório Remoto**:
+  - Certifique-se de usar a URL correta do repositório remoto. Um erro comum é digitar a URL incorretamente, o que resulta em falha ao adicionar o repositório remoto.
 
-- ## Anotações breves:
- utilizei MKDIR para criar os diretórios
- utilizei o VSCODE para criar os arquivos (novidades.md, principal.txt, experimento.txt, notas.txt, resumo.md, tarefa.txt)
- Concluí o retorno das versões, conseguindo alterar dentre elas.
+- **Envio de Commits**:
+  - O comando `git push -u origin master` define `origin` como o repositório remoto padrão para a branch `master`, facilitando futuros envios de commits.
+
+- **Clonagem de Repositórios**:
+  - A clonagem cria uma cópia completa do repositório remoto, incluindo todo o histórico de commits, branches e arquivos.
 
 ---
